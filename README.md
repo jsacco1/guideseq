@@ -316,7 +316,7 @@ In addition to end-to-end pipeline analysis functionality, the guideseq package 
 
 ### `align` Sites to Genome<a name="align"></a>
 
-- **Functionality**: Given the consolidated forward and reverse reads, execute a paired-end mapping of the sequences to the reference genome using the `bwa` package. Outputs an alignment `.sam` file to the `outfolder`.
+- **Functionality**: Given the consolidated forward and reverse reads, execute a paired-end mapping of the sequences to the reference genome using the `bwa` package. Outputs an alignment `.sam` file to the `outfolder`. Note: this step can take from about 15 to 45 minutes to complete; do not abort/interrupt process prematurely.
 - **Required Parameters**:
 	- `--bwa`: Path to the `bwa` executable
 	- `--genome`: Path to the reference genome FASTA file
@@ -334,7 +334,7 @@ In addition to end-to-end pipeline analysis functionality, the guideseq package 
 
 ### `identify` Off-target Site Candidates<a name="identify"></a>
 
-- **Functionality**: Given the alignment samfile for a given site, a reference genome, and a target sequence, output a tab-delimited `.txt` file containing the identified off-target sites.
+- **Functionality**: Given the alignment samfile for a given site, a reference genome, and a target sequence, output a tab-delimited `.txt` file containing the identified off-target sites. Use `''` for controls without a target sequence, such as for GTP controls. 
 - **Required Parameters**:
 	- `--aligned`: Path to the site-specific alignment `.sam` file.
 	- `--genome`: Path to the reference genome FASTA file.
